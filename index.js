@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const ListModel = require("./models/listnft");
+require('dotenv').config();
 
 /// DATABASE CONNECTION
 mongoose.connect(
@@ -41,6 +42,6 @@ app.get("/read", async (req, res) => {
   });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || 3001, () => {
   console.log("You are connected!");
 });
